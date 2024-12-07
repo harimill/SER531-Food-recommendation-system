@@ -329,7 +329,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "next dev",
-    "dev:server": "nodemon server.js"
+    "dev:server": "nodemon server.js",
      "vercel-build": "npm install --no-optional && next build"
   },
   "author": "",
