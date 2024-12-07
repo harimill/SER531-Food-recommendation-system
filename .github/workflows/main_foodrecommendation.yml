@@ -61,6 +61,5 @@ jobs:
         id: deploy-to-webapp
         with:
           app-name: 'FoodRecommendation'
-          slot-name: 'Production'
           package: .
           
