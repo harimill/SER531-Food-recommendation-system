@@ -21,13 +21,12 @@ jobs:
         with:
           node-version: '20.x'
 
-      - name: Install dependencies
+      - name: npm install, build, and test
         run: |
           npm install
           npm run build --if-present
           npm run test --if-present
-        env:
-          NPM_CONFIG_OPTIONAL: false
+      
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
@@ -52,16 +51,15 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_95F79CE57CC54503B5D8F583EC46DD5F }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_52BBAC39E8434DC7ABB994B6030946E0 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_7941EC77890545B29FC1874C7C699C2C }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_70C8B613ADFC4EDC8A8562A7EC99ADF7 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_79488A05389D487FB6FE190C44BD8828 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_9BD1C8465A244D94833EFAAD96635D17 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
           app-name: 'FoodRecommendation'
+          slot-name: 'Production'
           package: .
-      - name: 'Log Deployment URL'
-        run: echo "Web App URL: ${{ steps.deploy-to-webapp.outputs.webapp-url }}"
           
