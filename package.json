@@ -327,10 +327,10 @@
     "yocto-queue": "^0.1.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "dev": "next dev",
     "dev:server": "nodemon server.js"
+     "vercel-build": "npm install --no-optional && next build"
   },
   "author": "",
   "license": "ISC",
