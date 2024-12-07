@@ -62,4 +62,6 @@ jobs:
         with:
           app-name: 'FoodRecommendation'
           package: .
+      - name: 'Log Deployment URL'
+        run: echo "Web App URL: ${{ steps.deploy-to-webapp.outputs.webapp-url }}"
           
