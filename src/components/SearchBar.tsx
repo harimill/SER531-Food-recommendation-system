@@ -13,7 +13,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSelectFood }) => {
   useEffect(() => {
     const fetchFoods = async () => {
       try {
-        const response = await axios.post('http://localhost:4000/api/nutrition', { query: searchQuery });
+        const response = await axios.post('https://ser531-food-recommendation-system.onrender.com/api/nutrition', { query: searchQuery });
         if (response.data.combinedResults) {
           const uniqueFoods = Array.from(new Set(response.data.combinedResults.map((foodItem: any) => foodItem.foodItem)))
             .map(foodItem => {
