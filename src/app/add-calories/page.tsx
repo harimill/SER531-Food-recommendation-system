@@ -15,7 +15,7 @@ const AddCaloriesPage = () => {
   const handleFoodSelect = async (food: string) => {
     setSelectedFood(food);
     try {
-      const response = await axios.post('http://localhost:4000/api/nutrition', { query: food });
+      const response = await axios.post('https://ser531-food-recommendation-system.onrender.com/api/nutrition', { query: food });
       console.log('Response from backend:', response.data);
       if (response.data.combinedResults && response.data.combinedResults.length > 0) {
         setFoodData(response.data.combinedResults[0]);
