@@ -11,7 +11,7 @@ const FoodList = () => {
     const fetchFoods = async () => {
       setIsLoading(true);
       try {
-        const response = await axios.post('http://localhost:4000/api/nutrition', { query: searchQuery });
+        const response = await axios.post('https://ser531-food-recommendation-system.onrender.com/api/nutrition', { query: searchQuery });
         setFoods(response.data);
       } catch (error) {
         console.error('Error fetching food data:', error);
